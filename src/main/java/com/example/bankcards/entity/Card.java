@@ -10,6 +10,7 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Entity
+@Table(name = "cards")
 @Getter
 @Setter
 @AllArgsConstructor
@@ -17,6 +18,8 @@ import java.time.LocalDate;
 public class Card {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    @Column(nullable = false, unique = true)
     private String cardNumber;
     @ManyToOne
     @JoinColumn(name = "user_id")
