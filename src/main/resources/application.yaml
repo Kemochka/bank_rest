@@ -1,0 +1,38 @@
+spring:
+  application:
+    name: bankcards
+
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/bank_db
+    username: postgres
+    password: postgres
+
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+  liquibase:
+    change-log: classpath:db/changelog/db.changelog-master.yaml
+    enabled: true
+
+server:
+  port: 8081
+
+bankcards:
+  openapi:
+    dev-url: http://127.0.0.1:8081
+    prod-url: https://mydomen.com
+
+springdoc:
+  swagger-ui:
+    tryItOutEnabled: true
+
+logging:
+  level:
+    org.springframework.core.env: DEBUG
