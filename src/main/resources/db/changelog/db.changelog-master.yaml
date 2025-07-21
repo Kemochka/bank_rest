@@ -3,3 +3,9 @@ databaseChangeLog:
       file: db/migration/001_ddl_create_table_users.yaml
   - include:
       file: db/migration/002_ddl_create_table_cards.yaml
+  - include:
+      file: db/migration/003_ddl_create_table_roles.yaml
+  - include:
+      file: db/migration/004_dml_insert_roles.yaml
+  - include:
+      file: db/migration/005_ddl_create_table_users_roles.yaml

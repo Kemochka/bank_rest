@@ -1,0 +1,19 @@
+databaseChangeLog:
+  - changeSet:
+      id: 3
+      author: kemochka
+      changes:
+        - createTable:
+            tableName: roles
+            columns:
+              - column:
+                  name: id
+                  type: bigserial
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: role
+                  type: varchar(25)
+
+

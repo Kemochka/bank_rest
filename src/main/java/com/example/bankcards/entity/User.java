@@ -1,6 +1,5 @@
 package com.example.bankcards.entity;
 
-import com.example.bankcards.security.models.Role;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -22,17 +21,15 @@ public class User {
     @Column(unique = true)
     private String login;
     private String password;
-    @Column(name = "first_name")
     private String firstName;
-    @Column(name = "last_name")
     private String lastName;
-    /*@ManyToMany(fetch = FetchType.LAZY)
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
             name = "users_roles",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id")
     )
-    private Set<Role> roles = new HashSet<>();*/
+    private Set<Role> roles = new HashSet<>();
 
     public User(Long id, String login, String password) {
         this.id = id;
