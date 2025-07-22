@@ -36,3 +36,8 @@ springdoc:
 logging:
   level:
     org.springframework.core.env: DEBUG
+
+jwt:
+  token:
+    secret: FZCoaOh/Sy6K3EerEJIO8nSOJCqI1HWuZysowqImOJqs4BAKmuJgMMDIXvEeu+PvLs1kwEmLknwqL16X+oqjFg==
+    expired: 3600000
