@@ -1,5 +1,7 @@
 package com.example.bankcards.entity;
 
+import com.example.bankcards.security.models.Role;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -18,21 +20,21 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EqualsAndHashCode.Include
     private Long id;
+    private String username;
     @Column(unique = true)
     private String login;
     private String password;
-    private String firstName;
-    private String lastName;
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
             name = "users_roles",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id")
     )
+    @JsonIgnore
     private Set<Role> roles = new HashSet<>();
 
-    public User(Long id, String login, String password) {
-        this.id = id;
+    public User(String username, String login, String password) {
+        this.username = username;
         this.login = login;
         this.password = password;
     }
