@@ -1,13 +1,11 @@
 spring:
   application:
     name: bankcards
-
   datasource:
     driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://localhost:5432/bank_db
     username: postgres
     password: postgres
-
   jpa:
     hibernate:
       ddl-auto: none
@@ -16,11 +14,15 @@ spring:
     properties:
       hibernate:
         format_sql: true
-
   liquibase:
     change-log: classpath:db/changelog/db.changelog-master.yaml
     enabled: true
-
+  springdoc:
+    api-docs:
+      path: /v3/api-docs
+    swagger-ui:
+      path: /swagger-ui.html
+      enabled: true
 server:
   port: 8081
 
@@ -29,13 +31,11 @@ bankcards:
     dev-url: http://127.0.0.1:8081
     prod-url: https://mydomen.com
 
-springdoc:
-  swagger-ui:
-    tryItOutEnabled: true
-
 logging:
   level:
     org.springframework.core.env: DEBUG
+    org.springframework.security: DEBUG
+    org.springdoc: DEBUG
 
 jwt:
   token:
